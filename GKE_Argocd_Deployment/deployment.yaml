@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pvc-pod-deployment
+  labels:
+    app: pvc-pod
+spec:
+  replicas: 2 # Number of replicas (adjust as needed)
+  selector:
+    matchLabels:
+      app: pvc-pod
+  template:
+    metadata:
+      labels:
+        app: pvc-pod
+    spec:
+      containers:
+        - name: pvc-pod-container
+          image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12599065343
+          volumeMounts:
+            - mountPath: /data
+              name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: demo-pvc
