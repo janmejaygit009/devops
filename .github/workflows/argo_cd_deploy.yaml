@@ -28,14 +28,14 @@ jobs:
       - name: Connect to cluster
         run: |
           # Ensure gcloud CLI is configured and authenticate using the plugin
-          gcloud container clusters get-credentials my-gke-cluster --region us-central1 --project kinetic-dogfish-446616-r8
+          gcloud container clusters get-credentials jm-gke-cluster --region us-east1 --project kinetic-dogfish-446616-r8
           echo "connected to cluster"
 
       - name: Get cluster credentials 
         uses: google-github-actions/get-gke-credentials@v1 
         with:
-          cluster_name: my-gke-cluster
-          location: us-central1
+          cluster_name: jm-gke-cluster
+          location: us-east1
           project: kinetic-dogfish-446616-r8
 
       - name: Check and create namespace for ArgoCD
