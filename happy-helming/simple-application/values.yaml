@@ -1,0 +1,5 @@
+kind: "Deployment"
+metadata: "pvc-pod"
+containers:
+  - image: "nginx"
+    tag: "latest"

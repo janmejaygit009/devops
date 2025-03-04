@@ -1,0 +1,11 @@
+kind: Deployment
+metadata:
+  labels:
+    app: mydeployment
+  name: mydeployment
+spec:
+  replicas: 1
+  containers:
+  - image: nginx
+    tag: latest
+    name: nginx

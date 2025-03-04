@@ -1,0 +1,13 @@
+kind: Deployment
+metadata:
+  name: my-deployment
+labels:
+  app: my-app
+  environment: dev
+spec:
+  replicaset: 3
+  containers:
+    - name: container-1
+      image: nginx
+      ports:
+        - containerPort: 80

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: {{ .Values.kind }}
+metadata:
+  labels:
+    app: {{ .Values.metadata.labels.app }}
+  name: {{ .Values.metadata.name }}
+spec:
+  replicas: {{ .Values.spec.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.metadata.labels.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.metadata.labels.app }}
+    spec:
+      containers:
+      - image: {{ index .Values.spec.containers 0 "image" }}
+        tag: {{ index .Values.spec.containers 0 "tag" }}
+        name: {{ index .Values.spec.containers 0 "name" }}
